@@ -1,0 +1,59 @@
+.center {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+a {
+  cursor: pointer;
+}
+
+.restart-btn {
+  text-align: center;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+.logo {
+  padding: 15px;
+  width: auto;
+}
+
+body {
+  padding-top: 70px;
+}
+
+.nav-item {
+  font-size: 12pt;
+  font-weight: bold !important;
+  color: #fff;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.assessment {
+  display: block;
+  margin: 0 auto;
+  height: 800px;
+  width: 1000px;
+}
+
+@media only screen and (max-width: 480px) {
+  .assessment {
+    display: block;
+    margin: 0 auto;
+    height: 420px !important;
+    width: 350px;
+  }
+}
+
+.collapsing {
+  -webkit-transition: none;
+  transition: none;
+}

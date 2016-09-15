@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trait Finder</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/stylesheet.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <img class='navbar-brand logo responsive' src="assets/logo.png" />
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+           <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="nav-item"><a class="nav-link" onclick="getAsessment('core')">Personality</a></li>
+           <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="nav-item"><a class="nav-link" onclick="getAsessment('career-deck')">Career</a></li>
+           <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="nav-item"><a class="nav-link" onclick="getAsessment('persuasion')">Persuasion</a></li>
+           <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="nav-item"><a class="nav-link" onclick="getAsessment('introvert-extrovert')">Introvert/Extrovert</a></li>
+           <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="nav-item"><a class="nav-link" onclick="getAsessment('super-hero')">Super Power</a></li>
+           <li data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="nav-item"><a class="nav-link" onclick="getAsessment('movies')">Movies</a></li>
+         </ul>
+       </div>
+    </nav>
+    <div class="content">
+      <button style="display:none" class='restart-btn btn btn-primary btn-block center'>Restart Assessment</button><br>
+      <div class="assessment">
+        <h4 style="text-align:center">Select an assessment to begin.</h4>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="https://cdn.traitify.com/js/widgets/v1.js"></script>
+    <script src="js/control.js"></script>
+  </body>
+</html>
