@@ -1,3 +1,6 @@
+var publicKey;
+var privateKey;
+
 $( document ).ready (function() {
   $(".nav a").on("click", function() {
     $(".nav").find(".active").removeClass("active");
@@ -19,7 +22,7 @@ function getAsessment(testName, restart) {
     url: 'https://api-sandbox.traitify.com/v1/assessments',
     type: "POST",
     beforeSend: function (xhr) {
-        xhr.setRequestHeader("Authorization", "Basic " + btoa(prK));
+        xhr.setRequestHeader("Authorization", "Basic " + btoa(privateKey));
     },
     data: '{"deck_id": "'+testName+'"}',
     dataType: 'json',
@@ -44,13 +47,10 @@ function idExist(name) {
       return localStorage.getItem('persuasianId');
     case 'super-hero':
       return localStorage.getItem('superHeroId');
-      break;
     case 'introvert-extrovert':
       return localStorage.getItem('introExtroId');
-      break;
     case 'movies':
       return localStorage.getItem('moviesId');
-      break;
     default:
       return false;
   }
@@ -82,7 +82,7 @@ function loadAssessment(assessmentId, testName) {
   if (testName) {
     saveId(assessmentId, testName);
   }
-  Traitify.setPublicKey(puK);
+  Traitify.setPublicKey(publicKey);
   Traitify.setHost("https://api-sandbox.traitify.com");
   Traitify.setVersion("v1");
   Traitify.ui.load(assessmentId, ".assessment");

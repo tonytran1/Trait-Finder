@@ -14,6 +14,10 @@ a {
   width: 95%;
 }
 
+.active a {
+   background:#595959 !important
+ }
+
 .notransition {
   -webkit-transition: none !important;
   -moz-transition: none !important;
