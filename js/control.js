@@ -1,14 +1,3 @@
-var currentTest;
-var coreId;
-var careerId;
-var persuasianId;
-var introExtroId;
-var superHeroId;
-var moviesId;
-
-var publicKey = "Your API publicKey";
-var privateKey = "Your API privateKey";
-
 $( document ).ready (function() {
   $(".nav a").on("click", function() {
     $(".nav").find(".active").removeClass("active");
@@ -21,7 +10,7 @@ $( document ).ready (function() {
 });
 
 function getAsessment(testName, restart) {
-  currentTest = testName;
+  window.currentTest = testName;
   if (idExist(testName) && !restart) {
     loadAssessment(idExist(testName));
     return;
@@ -30,7 +19,7 @@ function getAsessment(testName, restart) {
     url: 'https://api-sandbox.traitify.com/v1/assessments',
     type: "POST",
     beforeSend: function (xhr) {
-        xhr.setRequestHeader("Authorization", "Basic " + btoa(privateKey));
+        xhr.setRequestHeader("Authorization", "Basic " + btoa(prK));
     },
     data: '{"deck_id": "'+testName+'"}',
     dataType: 'json',
@@ -48,59 +37,52 @@ function getAsessment(testName, restart) {
 function idExist(name) {
   switch (name) {
     case 'core':
-      if (coreId)
-        return coreId;
-      break;
+      return localStorage.getItem('coreId');
     case 'career-deck':
-      if (careerId)
-        return careerId;
-      break;
+      return localStorage.getItem('careerId');
     case 'persuasion':
-      if (persuasianId)
-        return persuasianId;
-      break;
+      return localStorage.getItem('persuasianId');
     case 'super-hero':
-      if (superHeroId)
-        return superHeroId;
+      return localStorage.getItem('superHeroId');
       break;
     case 'introvert-extrovert':
-      if (introExtroId)
-        return introExtroId;
+      return localStorage.getItem('introExtroId');
       break;
     case 'movies':
-      if (moviesId)
-        return moviesId;
+      return localStorage.getItem('moviesId');
       break;
+    default:
+      return false;
   }
-  return false;
 }
 
 function saveId(id, name) {
   switch (name) {
     case 'core':
-      coreId = id;
+      localStorage.setItem('coreId', id);
       break;
     case 'career-deck':
-      careerId = id;
+      localStorage.setItem('careerId', id);
       break;
     case 'persuasion':
-      persuasianId = id;
+      localStorage.setItem('persuasianId', id);
       break;
     case 'super-hero':
-      superHeroId = id;
+      localStorage.setItem('superHeroId', id);
       break;
     case 'introvert-extrovert':
-      introExtroId = id;
+      localStorage.setItem('introExtroId', id);
       break;
     case 'movies':
-      moviesId = id;
+      localStorage.setItem('moviesId', id);
   }
 }
 
 function loadAssessment(assessmentId, testName) {
-  if (testName)
+  if (testName) {
     saveId(assessmentId, testName);
-  Traitify.setPublicKey(publicKey);
+  }
+  Traitify.setPublicKey(puK);
   Traitify.setHost("https://api-sandbox.traitify.com");
   Traitify.setVersion("v1");
   Traitify.ui.load(assessmentId, ".assessment");
